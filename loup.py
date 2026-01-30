@@ -1,4 +1,5 @@
 import random as rd
+dxdy = [(1,0),(0,1),(-1,0),(0,-1)]
 class Loup :
     def __init__(self,x,y,id)
         self.vivant = True
@@ -19,11 +20,9 @@ class Loup :
             self.vivant = False
     def reproduction(self):
         if self.vivant and energie>seuil :
-            while not(libre(self.x+dx,self.y+dy)):#a resoudre pour eviter boucle infini
-                dx = rd.randint(0,1)
-                dx = 2*(dx-0.5)
-                dy= rd.randint(0,1)
-                dy = 2*(dx-0.5)
+            i = rd.randint(0,3)
+            while not(libre(dxdy[i][0],dxdy[i][1])):#a resoudre pour eviter boucle infini
+                i = (i+1)%4
             id = #a revoir
             petit = Loup(self.x+dx,self.y+dy,id)
             self.energie -= 20
