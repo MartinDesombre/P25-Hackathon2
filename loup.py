@@ -27,6 +27,11 @@ class Loup :
             petit.x = self.x+dx
             petit.y = self.y+dy
             return petit
+        
+    def mouton_voisin (self):
+        if Grid.is_mouton(self.x,self.y)[0] :
+            return Grid.is_mouton[1:2]
+        
     def deplacement(self):
         if self.vivant :
             mv = mouton_voisin(self.x,self.y)
@@ -41,9 +46,7 @@ class Loup :
                         dy = 2*(dx-0.5)
             self.x += dx
             self.y += dy
-def mouton_voisin(x,y):
-    for elem in moutons:
-        if abs(x-elem.x) = 1 :
-            if abs(y-elem.y) = 1:
-                return True, elem.x, elem.y
-    return False,0,0
+
+    
+
+    
