@@ -22,6 +22,7 @@ class Mouton :
             return (True, -1, 0)
         if Grid.cells[self._x][self._y-1] == '#' : 
             return (True, 0, -1)
+        return (False,0,0)
     
     def direction_aleatoire (self):
         a = random.randint (1,4)
