@@ -53,14 +53,8 @@ class Mouton :
             self._en-vie = False
         if self._age > 50 :
             self._en-vie = False
-        if loup_confondu(self.x, self.y):
-            self._en-vie = False
-def loup_confondu(x,y):
-    for loup in loups:
-        if loup.x == x:
-            if loup.y == y:
-                return True
-    return False
+
+
         
 
     
