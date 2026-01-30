@@ -8,10 +8,6 @@ def trouver_mouton(x,y):
         if mouton.x = x and mouton.y = y:
             return mouton
 
-
-
-
-
 nb_tours = 0
 
 while nb_tours < 500:
@@ -35,8 +31,6 @@ while nb_tours < 500:
 
         grid.update()
 
-
-
     for loup in loups :
 
         loup.vieilir()
@@ -48,7 +42,7 @@ while nb_tours < 500:
             mouton = trouver_monton(x,y)
             mouton._en-vie = False
 
-        loup.vivant = False
+        loup.mort()
 
 
         grid.update()
