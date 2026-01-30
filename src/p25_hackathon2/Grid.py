@@ -9,24 +9,23 @@ class Grid:
 
     def set_cell(self, size):
         self.cells = [random.choices(['.', '#'], weights=[GRASS_COVERAGE,1-GRASS_COVERAGE], k = size) for _ in range(size)]
-        L2 = []
-        for i in range(size):
-            L2.append([])
-            for j in range(size):
-                if self.cells[i][j] == 1:
-                    L2[i].append(j)
-        return L2
 
     def update_grid(self, updates):
+        for sheep in Sheep.list():
+            x, y = sheep[1], sheep[2]
+            if sheep[0]=='alive':
+                self.cells[x][y] = 'M'
+            
+
+        for wolf in Wolf.list():
+            x, y = wolf[1], wolf[2]
+            if wolf[0]=='alive':
+                if self.cells[x][y] == '#'
+                    self.cells[x][y] = '#W'
+                else:
+                    self.cells[x][y] = 'W'
+            else:
+                self.cells[x][y] = 'X'
 
 
-    def get_cell(self, x, y):
-        if 0 <= x < self.width and 0 <= y < self.height:
-            return self.cells[y][x]
-        else:
-            raise IndexError("Cell position out of bounds")
-
-    def display(self):
-        for row in self.cells:
-            print(" ".join(str(cell) for cell in row))
-    
+  
