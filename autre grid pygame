@@ -1,0 +1,79 @@
+import pygame
+import random
+from loup import Loup
+from mouton import Mouton
+from herbe import Herbe
+
+# --- CONFIGURATION ---
+TAILLE_GRILLE = 30
+TAILLE_CELLULE = 20  # Chaque case fait 20x20 pixels
+LARGEUR_FENETRE = TAILLE_GRILLE * TAILLE_CELLULE
+HAUTEUR_FENETRE = TAILLE_GRILLE * TAILLE_CELLULE
+FPS = 10  # Vitesse de la simulation
+
+# Couleurs (RGB)
+VERT = (34, 177, 76)
+BLANC = (255, 255, 255)
+GRIS = (200, 200, 200)
+ROUGE = (200, 0, 0)
+
+def main():
+    pygame.init()
+    ecran = pygame.display.set_mode((LARGEUR_FENETRE, HAUTEUR_FENETRE))
+    pygame.display.set_caption("Écosystème : Loups, Moutons et Herbe")
+    horloge = pygame.time.Clock()
+
+    # --- INITIALISATION DES ENTITÉS ---
+    # On utilise ta logique de coordonnées uniques
+    toutes_pos = [(x, y) for x in range(TAILLE_GRILLE) for y in range(TAILLE_GRILLE)]
+    depart = random.sample(toutes_pos, 50)
+
+    loups = [Loup(p[0], p[1], 20) for p in depart[:5]]
+    moutons = [Mouton(p[0], p[1], 15) for p in depart[5:25]]
+    herbes = [Herbe(p[0], p[1]) for p in depart[25:]]
+
+    continuer = True
+    while continuer:
+        # 1. Gestion des événements
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                continuer = False
+
+        # 2. Mise à jour de la logique
+        for m in moutons:
+            m.se_deplacer()
+            m.manger(herbes)
+        for l in loups:
+            l.se_deplacer()
+            l.manger(moutons)
+
+        # 3. Affichage
+        ecran.fill(BLANC) # Fond blanc
+
+        # Dessiner la grille (optionnel)
+        for x in range(0, LARGEUR_FENETRE, TAILLE_CELLULE):
+            pygame.draw.line(ecran, GRIS, (x, 0), (x, HAUTEUR_FENETRE))
+        for y in range(0, HAUTEUR_FENETRE, TAILLE_CELLULE):
+            pygame.draw.line(ecran, GRIS, (0, y), (LARGEUR_FENETRE, y))
+
+        # Dessiner l'Herbe (Carrés verts)
+        for h in herbes:
+            pygame.draw.rect(ecran, VERT, (h.x * TAILLE_CELLULE, h.y * TAILLE_CELLULE, TAILLE_CELLULE, TAILLE_CELLULE))
+
+        # Dessiner les Moutons (Cercles gris/bleus)
+        for m in moutons:
+            centre = (m.x * TAILLE_CELLULE + TAILLE_CELLULE//2, m.y * TAILLE_CELLULE + TAILLE_CELLULE//2)
+            pygame.draw.circle(ecran, (150, 150, 150), centre, TAILLE_CELLULE//3)
+
+        # Dessiner les Loups (Cercles rouges)
+        for l in loups:
+            centre = (l.x * TAILLE_CELLULE + TAILLE_CELLULE//2, l.y * TAILLE_CELLULE + TAILLE_CELLULE//2)
+            pygame.draw.circle(ecran, ROUGE, centre, TAILLE_CELLULE//2)
+
+        pygame.display.flip() # Mettre à jour l'écran
+        horloge.tick(FPS)
+
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()

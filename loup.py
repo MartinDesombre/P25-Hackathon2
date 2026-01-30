@@ -1,7 +1,7 @@
 import random as rd
 dxdy = [(1,0),(0,1),(-1,0),(0,-1)]
 class Loup :
-    def __init__(self,x,y,id)
+    def __init__(self,x,y,id):
         self.vivant = True
         self.x = x
         self.y = y
