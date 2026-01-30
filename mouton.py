@@ -1,7 +1,7 @@
 from random import *
 
 
-moutons = []
+moutons = {}
 class Mouton : 
     def _init_ (self, x, y) : 
         self._x = x
@@ -9,6 +9,9 @@ class Mouton :
         self._age = 0    
         self._energie = 20
         self._en-vie = True
+    
+    def vieillir (self) :
+        self._age += 1
     
     def detecter_herbe (self) :
 
