@@ -22,6 +22,7 @@ class Mouton :
             return (True, -1, 0)
         if Grid.cells[self._x][self._y-1] == '#' : 
             return (True, 0, -1)
+        return (False,0,0)
     
     def direction_aleatoire (self):
         a = random.randint (1,4)
@@ -43,25 +44,18 @@ class Mouton :
         self._energie += 10
 
     def reproduction (self) : 
-        if self._energie > 50 :
+        if (self._energie > 50 and Grid.case_vide(self._x,self._y)[0]):
             self._energie += -20
-        dx,dy = Grid.case_vide(self._x,self._y)
-        moutons[len(moutons)]= Mouton(self._x + dx, self._y + dy)
+            dx,dy = Grid.case_vide(self._x,self._y)[1:2]
+            moutons[len(moutons)]= Mouton(self._x + dx, self._y + dy)
 
     def mort (self) :
         if self._energie <= 0 :
             self._en-vie = False
         if self._age > 50 :
             self._en-vie = False
-        if loup_confondu(self.x, self.y):
-            self._en-vie = False
-            
-def loup_confondu(x,y):
-    for loup in loups:
-        if loup.x == x:
-            if loup.y == y:
-                return True
-    return False
+
+
         
 
     

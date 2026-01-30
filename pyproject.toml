@@ -7,7 +7,9 @@ authors = [
     { name = "Martin Desombre", email = "martin.desombre1@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "numpy>=2.4.1",
+]
 
 [project.scripts]
 p25-hackathon2 = "p25_hackathon2:main"
