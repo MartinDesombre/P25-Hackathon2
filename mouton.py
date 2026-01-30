@@ -22,6 +22,7 @@ class Mouton :
             return (True, -1, 0)
         if Grid.cells[self._x][self._y-1] == '#' : 
             return (True, 0, -1)
+        return (False,0,0)
     
     def direction_aleatoire (self):
         a = random.randint (1,4)
@@ -53,14 +54,8 @@ class Mouton :
             self._en-vie = False
         if self._age > 50 :
             self._en-vie = False
-        if loup_confondu(self.x, self.y):
-            self._en-vie = False
-def loup_confondu(x,y):
-    for loup in loups:
-        if loup.x == x:
-            if loup.y == y:
-                return True
-    return False
+
+
         
 
     
