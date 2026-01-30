@@ -1,39 +1,40 @@
 import random as rd
-class loup :
-    vivant = True
-    x = 0#on s'en fout, on admet que dès qu'on créera un loup, on modifiera la position immédiatement après
-    y = 0#idem
-    age = 0
-    energie = 40
-    seuil = 80 #seuil pour la reproduction
-    limite = 40 #limite d'age
+class Loup() :
+    def __init__(self,id,x,y):
+        self.id = id
+        self.vivant = True
+        self.x = x#on s'en fout, on admet que dès qu'on créera un loup, on modifiera la position immédiatement après
+        self.y = y#idem
+        self.age = 0
+        self.energie = 40
+        self.seuil = 80 #seuil pour la reproduction
+        self.limite = 40 #limite d'age*
+
     def vieillir(self):
-        age += 1
+        if self.vivant:
+            self.age += 1
     def perte_energie(self):
-        energie -= 2
+        if self.vivant:
+            self.energie -= 2
     def mort(self):
-        if age>limite or energie<0 :
-            vivant = False
+        if self.vivant and (self.age>self.limite or self.energie)<0 :
+            self.vivant = False
     def reproduction(self):
-        if energie>seuil :
+        if self.vivant and energie>seuil :
             while not(libre(x+dx,y+dy):
                 dx = rd.randint(0,1)
                 dx = 2*(dx-0.5)
                 dy= rd.randint(0,1)
                 dy = 2*(dx-0.5)
-            petit = loup()
-            petit.x = x+dx
-            petit.y = y+dy
+            id = #à compléter avec le prochain id disponible
+            petit = Loup(id,x,y)
             return petit
     def deplacement(self):
-        if: ##definir une condition en fonction de l'implementation des moutons
-        #definir une action en fonction de l'imlplementation des moutons
-        else :
-             while not(libre(x+dx,y+dy):
-                    dx = rd.randint(0,1)
-                    dx = 2*(dx-0.5)
-                    dy= rd.randint(0,1)
-                    dy = 2*(dx-0.5)
-        x += dx
-        y += dy
+        if self.vivant:
+          if #definir une condition en fonction de l'imlplementation des moutons
+            #definir une action en fonction de l'imlplementation des moutons
+            else :
+                        dy = 2*(dx-0.5)
+            self.x += dx
+            self.y += dy
 
