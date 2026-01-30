@@ -14,11 +14,11 @@ class loup :
         if self.vivant :
             self.energie -= 2
     def mort(self):
-        if self.vivant and self.age>self.limite or self.energie<0 :
+        if self.vivant and (self.age>self.limite or self.energie<0) :
             self.vivant = False
     def reproduction(self):
         if self.vivant and energie>seuil :
-            while not(libre(x+dx,y+dy):
+            while not(libre(x+dx,y+dy)):
                 dx = rd.randint(0,1)
                 dx = 2*(dx-0.5)
                 dy= rd.randint(0,1)
@@ -29,8 +29,10 @@ class loup :
             return petit
     def deplacement(self):
         if self.vivant :
-            if: ##definir une condition en fonction de l'implementation des moutons
-            #definir une action en fonction de l'imlplementation des moutons
+            mv = mouton_voisin(self.x,self.y)
+            if mv[0]: 
+                self.x = mv[1]
+                self.y = mv[2]
             else :
                 while not(libre(x+dx,y+dy):
                         dx = rd.randint(0,1)
@@ -39,4 +41,9 @@ class loup :
                         dy = 2*(dx-0.5)
             self.x += dx
             self.y += dy
-
+def mouton_voisin(x,y):
+    for elem in moutons:
+        if abs(x-elem.x) = 1 :
+            if abs(y-elem.y) = 1:
+                return True, elem.x, elem.y
+    return False,0,0
