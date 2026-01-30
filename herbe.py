@@ -13,10 +13,10 @@ class Herbe():
         Grille.herbe(self.x,self.y) = 0
 
     def repousse(self):
-        if is_mouton(self.x,self.y):
+        if is_mouton(self.x,self.y) or self.tps_depuis_mort == 0:
             pass
         elif random.random() < 0.08 :
-            Grille.herbe(self.x,self.y) = 1
+            self.tps_depuis_mort = 0
         
         elif tps_depuis_mort >= 7:
-            Grille.herbe(self.x,self.y) = 1
+            self.tps_depuis_mort = 0
