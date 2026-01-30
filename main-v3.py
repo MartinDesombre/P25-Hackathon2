@@ -218,7 +218,7 @@ loups = [Loup(2, 2), Loup(8, 8), Loup(4, 4), Loup(6, 6),Loup(25,25),Loup(5,5),Lo
 # Simulation
 plt.ion()  # Turn on interactive mode
 nb_tours = 0
-while nb_tours < 100:
+while nb_tours < 50:
 
     for mouton in moutons:
         if mouton._en_vie:
