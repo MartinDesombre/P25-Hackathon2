@@ -37,15 +37,10 @@ while nb_tours < 500:
 
         loup.vieilir()
         loup.perte_energie()
-        
-
         loup.deplacement().vivant = False
-
         loup.reproduction()
-
         loup.mort()
-
-
+        
         grid.update()
     
 
