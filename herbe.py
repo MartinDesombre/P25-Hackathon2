@@ -16,7 +16,7 @@ class Herbe():
         self.tps_depuis_mort = -1
 
     def repousse(self):
-        if is_mouton(self.x, self.y):
+        if grid.cells[self.x][self.y] == 'M':
             pass  # Ne rien faire s'il y a un mouton
         else:
             if self.tps_depuis_mort == -1:

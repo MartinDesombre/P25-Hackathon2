@@ -21,7 +21,6 @@ class Grid:
         
 
     def update_grid(self, updates):
-        vectorized_repousse(grille_herbe)
         for i in range(len(grille_herbe)):
             for j in range(len(grille_herbe[i])):
                 if grille_herbe[i][j].tps_depuis_mort == -1:
