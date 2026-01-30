@@ -4,14 +4,21 @@ while (nb_tours < 500):
 
 
     for mouton in moutons :
-        mouton.vieillir()
+        if mouton._en-vie :
+            mouton.vieillir()
 
-        if mouton.trouve_herbe():
-            mouton.bouge_herbe()
-            grille_herbe[mouton.x][mouton.y].mangee()
+            if mouton.trouve_herbe()[0]:
+                mouton.deplace(mouton.trouve_herbe[1:2])
+                grille_herbe[mouton.x][mouton.y].mangee()
+                mouton.manger()
+            else :
+                mouton.deplace(direction_aleatoire)
+            
+            if mouton.energie > 50 :
+                mouton.reproduction()
+            mouton.energie += -1
 
 
-        mouton.mort()
 
 
     for loup in loups :
@@ -26,5 +33,9 @@ while (nb_tours < 500):
 
         loup.mort()
 
+    for mouton in moutons :
+        mouton.mort()
+    for loup in loups:
+        loup.mort
     grid.update()
         
