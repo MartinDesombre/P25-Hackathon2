@@ -9,4 +9,3 @@ while (nb_tours < 500):
 
     for elem in Grid :
         
-    
