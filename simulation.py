@@ -5,7 +5,7 @@ import main.py as main
 
 def trouver_mouton(x,y):
     for mouton in moutons:
-        if mouton.x = x and mouton.y = y:
+        if mouton.x == x and mouton.y == y:
             return mouton
 
 
