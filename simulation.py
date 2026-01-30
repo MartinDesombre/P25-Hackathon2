@@ -1,6 +1,7 @@
 from mouton import Mouton
 from loup import Loup
 import random
+
 while (nb_tours < 500):
        
 
