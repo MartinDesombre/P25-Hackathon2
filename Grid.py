@@ -34,6 +34,17 @@ class Grid:
             x, y = loup.x, loup.y
             if loup._en-vie =='True':
                 self.cells[x][y] = 'W'
+    
+    def case_vide(self, x,y) :  ### renvoie un booléen qui indique s'il existe une case vide et la direction de la case vide
+        if (self.cells[x+1][y] == "#" or self.cells[x+1][y] == ".") :
+            return (True, 1, 0)
+        if (self.cells[x][y+1] == "#" or self.cells[x][y+1] == ".") :
+            return (True, 0, 1)
+        if (self.cells[x-1][y] == "#" or self.cells[x-1][y] == ".") :
+            return (True, -1, 0)
+        if (self.cells[x][y-1] == "#" or self.cells[x][y-1] == ".") :
+            return (True, 0, -1)
+        return (False, 0, 0)
 
     
 
