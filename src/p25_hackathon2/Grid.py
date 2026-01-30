@@ -39,9 +39,7 @@ class Grid:
 
     
 
-    def update_herbe():
-        grille_herbe = np.array([[Herbe(x, y) for y in range(30)] for x in range(30)])
-        vectorized_repousse = np.vectorize(lambda herbe: herbe.repousse())
-        vectorized_repousse(grille_herbe)
-        
+            
+
+   
   
