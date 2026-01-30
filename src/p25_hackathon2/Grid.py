@@ -16,16 +16,12 @@ class Grid:
             if sheep[0]=='alive':
                 self.cells[x][y] = 'M'
             
-
         for wolf in Wolf.list():
             x, y = wolf[1], wolf[2]
             if wolf[0]=='alive':
-                if self.cells[x][y] == '#'
-                    self.cells[x][y] = '#W'
-                else:
-                    self.cells[x][y] = 'W'
-            else:
-                self.cells[x][y] = 'X'
+                self.cells[x][y] = 'W'
+
+            
 
 
   
