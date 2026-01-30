@@ -18,7 +18,6 @@ class Grid:
        
 
     def update_grid(self, updates):
-        vectorized_repousse(grille_herbe)
         for i in range(len(grille_herbe)):
             for j in range(len(grille_herbe)):
                 if grille_herbe[i][j].tps_depuis_mort == -1:
@@ -26,17 +25,15 @@ class Grid:
                 else:
                     self.cells[i][j] = '.'
 
-        for list_mouton in Liste_mouton:
-            for mouton in Liste_mouton:
-                x, y = mouton[1], mouton[2]
-                if mouton[0]=='alive':
-                    self.cells[x][y] = 'M'
+        for mouton in moutons:
+            x, y = mouton.x, mouton.y
+            if mouton._en-vie =='True':
+                self.cells[x][y] = 'M'
             
-        for list_loup in Loup.list():
-            for loup in list_loup:
-                x, y = loup[1], loup[2]
-                if loup[0]=='alive':
-                    self.cells[x][y] = 'W'
+        for loup in loups:
+            x, y = loup.x, loup.y
+            if loup._en-vie =='True':
+                self.cells[x][y] = 'W'
 
     
 
