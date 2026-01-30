@@ -15,22 +15,19 @@ class Grid:
     def __init__(self, size):
         self.size = size
         self.cells = [random.choices(['.', '#'], weights=[GRASS_COVERAGE,1-GRASS_COVERAGE], k = size) for _ in range(size)]
-
-
-
-        
+       
 
     def update_grid(self, updates):
         vectorized_repousse(grille_herbe)
         for i in range(len(grille_herbe)):
-            for j in range(len(grille_herbe[i])):
+            for j in range(len(grille_herbe)):
                 if grille_herbe[i][j].tps_depuis_mort == -1:
                     self.cells[i][j] = '#'
                 else:
                     self.cells[i][j] = '.'
 
-        for list_mouton in Mouton.list():
-            for mouton in list_mouton:
+        for list_mouton in Liste_mouton:
+            for mouton in Liste_mouton:
                 x, y = mouton[1], mouton[2]
                 if mouton[0]=='alive':
                     self.cells[x][y] = 'M'
