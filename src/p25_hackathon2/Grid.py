@@ -32,4 +32,5 @@ class Grid:
         vectorized_repousse = np.vectorize(lambda herbe: herbe.repousse())
         vectorized_repousse(grille_herbe)
         
-  
+
+        
