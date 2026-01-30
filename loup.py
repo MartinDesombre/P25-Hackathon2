@@ -1,5 +1,5 @@
 import random as rd
-class loup :
+class Loup :
     vivant = True
     x = 0#on s'en fout, on admet que dès qu'on créera un loup, on modifiera la position immédiatement après
     y = 0#idem
