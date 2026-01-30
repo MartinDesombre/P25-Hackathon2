@@ -8,51 +8,35 @@ class loup :
     seuil = 80 #seuil pour la reproduction
     limite = 40 #limite d'age
     def vieillir(self):
-<<<<<<< HEAD
-        self.age += 1
+        if self.vivant :
+            self.age += 1
     def perte_energie(self):
-        self.energie -= 2
+        if self.vivant :
+            self.energie -= 2
     def mort(self):
-        if self.age>self.limite or self.energie<0 :
+        if self.vivant and self.age>self.limite or self.energie<0 :
             self.vivant = False
-=======
-        age += 1
-    def perte_energie(self):
-        energie -= 2
-    def mort(self):
-        if age>limite or energie<0 :
-            vivant = False
->>>>>>> 1-joseph
     def reproduction(self):
-        if energie>seuil :
+        if self.vivant and energie>seuil :
             while not(libre(x+dx,y+dy):
                 dx = rd.randint(0,1)
                 dx = 2*(dx-0.5)
                 dy= rd.randint(0,1)
                 dy = 2*(dx-0.5)
             petit = loup()
-<<<<<<< HEAD
             petit.x = self.x+dx
             petit.y = self.y+dy
-=======
-            petit.x = x+dx
-            petit.y = y+dy
->>>>>>> 1-joseph
             return petit
     def deplacement(self):
-        if: ##definir une condition en fonction de l'implementation des moutons
-        #definir une action en fonction de l'imlplementation des moutons
-        else :
-             while not(libre(x+dx,y+dy):
-                    dx = rd.randint(0,1)
-                    dx = 2*(dx-0.5)
-                    dy= rd.randint(0,1)
-                    dy = 2*(dx-0.5)
-<<<<<<< HEAD
-        self.x += dx
-        self.y += dy
-=======
-        x += dx
-        y += dy
->>>>>>> 1-joseph
+        if self.vivant :
+            if: ##definir une condition en fonction de l'implementation des moutons
+            #definir une action en fonction de l'imlplementation des moutons
+            else :
+                while not(libre(x+dx,y+dy):
+                        dx = rd.randint(0,1)
+                        dx = 2*(dx-0.5)
+                        dy= rd.randint(0,1)
+                        dy = 2*(dx-0.5)
+            self.x += dx
+            self.y += dy
 
