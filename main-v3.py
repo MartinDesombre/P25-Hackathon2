@@ -2,7 +2,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-GRID_SIZE = 30
+GRID_SIZE = 20
 GRASS_COVERAGE = 0.3
 vectorized_repousse = np.vectorize(lambda herbe: herbe.repousse())
 # Directions pour le loup de Joseph
@@ -71,7 +71,7 @@ class Loup :
                     for elem in moutons:
                         if (elem.x,elem.y) == (ix,igrec):
                             return True, ix, igrec, elem
-        return False,0,0,Mouton(0,0) #memoriellement sous-optimal car on fait pop un mouton pour le tuer s'il n'y en a pas
+        return False,0,0,None #memoriellement sous-optimal car on fait pop un mouton pour le tuer s'il n'y en a pas
         
     def deplacement(self):
         """se deplace et mange le cas echeant"""
@@ -212,8 +212,8 @@ def visualize_grid(grid, nb_tours):
     plt.pause(0.1)  # Pause briefly to allow the plot to update
 
 
-moutons = [Mouton(1, 1), Mouton(5, 5), Mouton(10, 10), Mouton(25,13),Mouton(5, 15), Mouton(20, 18), Mouton(29,13)]
-loups = [Loup(2, 2), Loup(8, 8), Loup(4, 4), Loup(6, 6),Loup(25,25),Loup(5,5),Loup(15,15),Loup(10,10),Loup(15,25),Loup(8,23),Loup(17,21)]
+moutons = [Mouton(1, 1), Mouton(5, 5), Mouton(10, 10), Mouton(15,13),Mouton(5, 15), Mouton(10, 18), Mouton(19,13)]
+loups = [Loup(2, 2), Loup(8, 8), Loup(4, 4), Loup(6, 6),Loup(15,15),Loup(5,5),Loup(15,15),Loup(10,10),Loup(15,15),Loup(8,13),Loup(17,11)]
 
 # Simulation
 plt.ion()  # Turn on interactive mode
