@@ -23,7 +23,6 @@ class Herbe():
                 pass  # L'herbe est deja vivante, ne rien faire
             else:
                 self.tps_depuis_mort += 1  # on actualise le tps depuis la mort
-
-            # Vérifier si l'herbe doit repousser
-            if random.random() < 0.08 or self.tps_depuis_mort >= 7:
-                self.tps_depuis_mort = -1  # Réinitialiser le temps depuis la mort
+                # Vérifier si l'herbe doit repousser
+                if random.random() < 0.08 or self.tps_depuis_mort >= 7:
+                    self.tps_depuis_mort = -1  # Réinitialiser le temps depuis la mort
