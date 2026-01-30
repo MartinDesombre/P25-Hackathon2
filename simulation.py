@@ -1,3 +1,6 @@
+from mouton import Mouton
+from loup import Loup
+import random
 
 import main.py as main
 
@@ -57,3 +60,15 @@ while nb_tours < 500:
     nb_tours += 1
 
         
+
+
+
+def generer_coordonnees_uniques(nombre, taille_grille):
+    toutes_les_positions = [(x, y) for x in range(taille_grille) for y in range(taille_grille)]
+    coordonnees = random.sample(toutes_les_positions, nombre)
+    return coordonnees
+
+positions_jeu = generer_coordonnees_uniques(60, 30)
+
+moutons= [Mouton(positions_jeu[i]) for i in range(50)]
+loups= [Loup(positions_jeu[i]) for i in range(10)]
