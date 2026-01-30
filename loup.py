@@ -1,7 +1,7 @@
 import random as rd
 dxdy = [(1,0),(0,1),(-1,0),(0,-1)]
 class Loup :
-    def __init__(self,x,y,id)
+    def __init__(self,x,y):
         self.vivant = True
         self.x = x
         self.y = y
@@ -30,10 +30,9 @@ class Loup :
                 dx = dxdy[i][0]
                 dy = dxdy[i][1]
             if c<4:
-                id = #a revoir
-                petit = Loup(self.x+dx,self.y+dy,id)
+                petit = Loup(self.x+dx,self.y+dy)
                 self.energie -= 20
-                return petit
+                loups.append(petit)
         
     def mouton_voisin (self):
         if Grid.is_mouton(self.x,self.y)[0] :
