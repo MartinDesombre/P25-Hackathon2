@@ -50,3 +50,13 @@ def mouton_voisin(x,y):
             if abs(y-elem.y) = 1:
                 return True, elem.x, elem.y
     return False,0,0
+def libre (x,y):
+    for loup in loups:
+        if loup.x == x :
+            if loup.y == y :
+                return False
+    for mouton in moutons:
+        if mouton.x == x :
+            if mouton.y == y :
+                return False
+    return True
