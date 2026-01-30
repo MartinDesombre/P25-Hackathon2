@@ -34,7 +34,7 @@ class Loup :
                 self.x = mv[1]
                 self.y = mv[2]
             else :
-                while not(libre(x+dx,y+dy):
+                while not(libre(x+dx,y+dy)):
                         dx = rd.randint(0,1)
                         dx = 2*(dx-0.5)
                         dy= rd.randint(0,1)
