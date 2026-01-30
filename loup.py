@@ -27,6 +27,11 @@ class Loup :
             petit = Loup(self.x+dx,self.y+dy,id)
             self.energie -= 20
             return petit
+        
+    def mouton_voisin (self):
+        if Grid.is_mouton(self.x,self.y)[0] :
+            return Grid.is_mouton[1:2]
+        
     def deplacement(self):
         """se deplace et mange le cas echeant"""
         if self.vivant :
