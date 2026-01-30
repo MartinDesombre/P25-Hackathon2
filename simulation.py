@@ -32,8 +32,7 @@ while nb_tours < 500:
             if mouton.energie > 50 :
                 mouton.reproduction()
             mouton.energie += -1
-
-        grid.update()
+            grid.update()
 
 
 
@@ -41,13 +40,14 @@ while nb_tours < 500:
 
         loup.vieilir()
         loup.perte_energie()
-        loup.reproduction()
+        
 
         if loup.trouve_mouton():
             #faire bouger le loup la ou il a trouve le mouton
             mouton = trouver_monton(x,y)
             mouton._en-vie = False
 
+        loup.reproduction()
         loup.vivant = False
 
 
