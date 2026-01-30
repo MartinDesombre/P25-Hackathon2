@@ -14,7 +14,7 @@ vectorized_repousse = np.vectorize(lambda herbe: herbe.repousse())
 class Grid:
     def __init__(self, size):
         self.size = size
-        self.cells = [random.choices(['.', '#'], weights=[GRASS_COVERAGE,1-GRASS_COVERAGE], k = size) for _ in range(size)]
+        
        
 
     def update_grid(self, updates):
