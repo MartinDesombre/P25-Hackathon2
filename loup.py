@@ -35,13 +35,19 @@ class Loup :
                 loups.append(petit)
         
     def mouton_voisin (self):
-        if Grid.is_mouton(self.x,self.y)[0] :
-            return Grid.is_mouton[1:2]
+        for (dx, dy) in dxdy:
+            if Grid.is_mouton(self.x+dx,self.y+dy):
+                ix = self.x + dx
+                igrec = self.y + dy
+                for elem in moutons:
+                    if (elem.x,elem.y) = (ix,igrec)
+                        return True, x, y, elem
+        return False,0,0,Mouton(0,0) #memoriellement sous-optimal car on fait pop un mouton pour le tuer s'il n'y en a pas
         
     def deplacement(self):
         """se deplace et mange le cas echeant"""
         if self.vivant :
-            mv = mouton_voisin(self.x,self.y)
+            mv = mouton_voisin(self)
             if mv[0]: 
                 self.x = mv[1]
                 self.y = mv[2]
@@ -59,6 +65,7 @@ class Loup :
             if c <4:
                 self.x += dx
                 self.y += dy
+            return mv[3]
 def libre (x,y):
     for loup in loups:
         if loup.x == x :

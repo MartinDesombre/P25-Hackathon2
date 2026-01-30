@@ -15,6 +15,8 @@ class Grid:
     def __init__(self, size):
         self.size = size
         
+    def is_mouton(self, x,y):
+        return self.cells[x][y] == 'M'
        
 
     def update_grid(self, updates):

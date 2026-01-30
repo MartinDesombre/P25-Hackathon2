@@ -39,14 +39,9 @@ while nb_tours < 500:
         loup.perte_energie()
         
 
-        loup.deplacement()
+        loup.deplacement().vivant = False
 
         loup.reproduction()
-
-        if loup.trouve_mouton():
-            #faire bouger le loup la ou il a trouve le mouton
-            mouton = trouver_monton(x,y)
-            mouton._en-vie = False
 
         loup.mort()
 
