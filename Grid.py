@@ -27,12 +27,12 @@ class Grid:
 
         for mouton in moutons:
             x, y = mouton.x, mouton.y
-            if mouton._en-vie =='True':
+            if mouton.vivant =='True':
                 self.cells[x][y] = 'M'
             
         for loup in loups:
             x, y = loup.x, loup.y
-            if loup._en-vie =='True':
+            if loup.vivant =='True':
                 self.cells[x][y] = 'W'
     
     def case_vide(self, x,y) :  ### renvoie un booléen qui indique s'il existe une case vide et la direction de la case vide

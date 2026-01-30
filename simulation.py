@@ -22,7 +22,7 @@ while nb_tours < 500:
 
 
     for mouton in moutons :
-        if mouton._en-vie :
+        if mouton.vivant :
             mouton.vieillir()
 
             if mouton.trouve_herbe()[0]:
