@@ -44,10 +44,10 @@ class Mouton :
         self._energie += 10
 
     def reproduction (self) : 
-        if self._energie > 50 :
+        if (self._energie > 50 and Grid.case_vide(self._x,self._y)[0]):
             self._energie += -20
-        dx,dy = Grid.case_vide(self._x,self._y)
-        moutons[len(moutons)]= Mouton(self._x + dx, self._y + dy)
+            dx,dy = Grid.case_vide(self._x,self._y)[1:2]
+            moutons[len(moutons)]= Mouton(self._x + dx, self._y + dy)
 
     def mort (self) :
         if self._energie <= 0 :

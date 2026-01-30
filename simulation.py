@@ -1,5 +1,20 @@
 
-while (nb_tours < 500):
+import main.py as main
+
+
+
+def trouver_mouton(x,y):
+    for mouton in moutons:
+        if mouton.x == x and mouton.y == y:
+            return mouton
+
+
+
+
+
+nb_tours = 0
+
+while nb_tours < 500:
        
 
 
@@ -17,25 +32,31 @@ while (nb_tours < 500):
             if mouton.energie > 50 :
                 mouton.reproduction()
             mouton.energie += -1
-
+            grid.update()
 
 
 
     for loup in loups :
+
         loup.vieilir()
+        loup.perte_energie()
+        
 
         if loup.trouve_mouton():
-            loup.bouge_mouton()
+            #faire bouger le loup la ou il a trouve le mouton
+            mouton = trouver_monton(x,y)
+            mouton._en-vie = False
 
-            #mouton_trouve = trouver l'id du mouton bouffé
+        loup.reproduction()
+        loup.vivant = False
 
-            mouton_trouve.mangee()
 
-        loup.mort()
+        grid.update()
+    
 
-    for mouton in moutons :
-        mouton.mort()
-    for loup in loups:
-        loup.mort
+    vectorized_repousse(grille_herbe)
     grid.update()
+
+    nb_tours += 1
+
         
