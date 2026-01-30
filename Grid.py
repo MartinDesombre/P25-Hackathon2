@@ -1,9 +1,13 @@
 import random 
-import herbe.py 
+import numpy as np
+from herbe import Herbe
+from loup import Loup
+from mouton import Mouton
+
 GRID_SIZE = 30
 GRASS_COVERAGE = 0.3
 
-grille_herbe = np.array([[herbe.py.Herbe(x, y) for y in range(30)] for x in range(30)])
+grille_herbe = np.array([[Herbe(x, y) for y in range(30)] for x in range(30)])
 vectorized_repousse = np.vectorize(lambda herbe: herbe.repousse())
 
 
@@ -25,16 +29,16 @@ class Grid:
                 else:
                     self.cells[i][j] = '.'
 
-        for list_mouton in Sheep.list():
-            for sheep in list_mouton:
-                x, y = sheep[1], sheep[2]
-                if sheep[0]=='alive':
+        for list_mouton in Mouton.list():
+            for mouton in list_mouton:
+                x, y = mouton[1], mouton[2]
+                if mouton[0]=='alive':
                     self.cells[x][y] = 'M'
             
-        for list_loup in Wolf.list():
-            for wolf in list_loup:
-                x, y = wolf[1], wolf[2]
-                if wolf[0]=='alive':
+        for list_loup in Loup.list():
+            for loup in list_loup:
+                x, y = loup[1], loup[2]
+                if loup[0]=='alive':
                     self.cells[x][y] = 'W'
 
     
